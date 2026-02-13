@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        header { background-color: #f4f4f4; padding: 10px; margin-bottom: 20px; }
+        nav { margin-bottom: 20px; }
+        nav a { margin-right: 15px; text-decoration: none; color: blue; }
+        details { margin-bottom: 10px; }
+        summary { cursor: pointer; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome, <span id="user-name">Francis</span>!</h1> 
+    </header>
+
+    <nav>
+        <a href="#order-history">Order History</a>
+        <a href="#profile-settings">Profile Settings</a>
+        <a href="#wishlist">Wishlist</a>
+    </nav>
+
+    <section id="order-history">
+        <h2>Previous Purchases</h2>
+        <details>
+            <summary>Order #12345 - Placed on 2023-10-01</summary>
+            <p><strong>Items:</strong> Laptop, Mouse</p>
+            <p><strong>Total:</strong> $1200</p>
+            <p><strong>Status:</strong> Delivered</p>
+        </details>
+        <details>
+            <summary>Order #12346 - Placed on 2023-09-15</summary>
+            <p><strong>Items:</strong> Keyboard, Headphones</p>
+            <p><strong>Total:</strong> $150</p>
+            <p><strong>Status:</strong> Shipped</p>
+        </details>
+        <details>
+            <summary>Order #12347 - Placed on 2023-08-20</summary>
+            <p><strong>Items:</strong> Monitor</p>
+            <p><strong>Total:</strong> $300</p>
+            <p><strong>Status:</strong> Delivered</p>
+        </details>
+    </section>
+</body>
+</html>
