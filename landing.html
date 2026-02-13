@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav li {
+            margin: 0 1rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+        .hero {
+            background-color: #f4f4f4;
+            padding: 2rem;
+            text-align: center;
+        }
+        .hero h1 {
+            margin-bottom: 1rem;
+        }
+        .hero button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+        .section {
+            padding: 2rem;
+            text-align: center;
+        }
+        .products {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .product {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            margin: 1rem;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Welcome to Our Store</h1>
+        <p>Discover amazing products at unbeatable prices. Start shopping today!</p>
+        <button>Shop Now</button>
+    </section>
+
+    <section class="section">
+        <h2>Featured Products</h2>
+        <div class="products">
+            <div class="product">
+                <h3>Product 1</h3>
+                <p>Description of featured product 1.</p>
+            </div>
+            <div class="product">
+                <h3>Product 2</h3>
+                <p>Description of featured product 2.</p>
+            </div>
+            <div class="product">
+                <h3>Product 3</h3>
+                <p>Description of featured product 3.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Discounted Products</h2>
+        <div class="products">
+            <div class="product">
+                <h3>Discounted Item 1</h3>
+                <p>Now 20% off! Description here.</p>
+            </div>
+            <div class="product">
+                <h3>Discounted Item 2</h3>
+                <p>Now 30% off! Description here.</p>
+            </div>
+            <div class="product">
+                <h3>Discounted Item 3</h3>
+                <p>Now 50% off! Description here.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
