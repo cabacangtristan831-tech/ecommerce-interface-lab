@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout & Shipping</title>
+    <style>
+       
+        body { font-family: Arial, sans-serif; margin: 20px; display: flex; }
+        main { flex: 1; }
+        aside { width: 300px; margin-left: 20px; padding: 20px; border: 1px solid #ddd; position: sticky; top: 20px; height: fit-content; }
+        section { margin-bottom: 30px; }
+        fieldset { border: 1px solid #ccc; padding: 10px; }
+        label { display: block; margin-bottom: 5px; }
+        input { margin-bottom: 10px; width: 100%; padding: 8px; }
+        .radio-group { margin-bottom: 10px; }
+        .summary { margin-bottom: 20px; }
+        .total { font-weight: bold; font-size: 1.2em; }
+        button { padding: 10px 20px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background-color: #218838; }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Checkout</h1>
+        
+        <section>
+            <h2>Shipping Information</h2>
+            <fieldset>
+                <label for="shipping-address">Shipping Address</label>
+                <input type="text" id="name" name="name" placeholder="Full Name" required>
+                <input type="text" id="street" name="street" placeholder="Street Address" required>
+                <input type="text" id="zip" name="zip" placeholder="Zip Code" required>
+            </fieldset>
+        </section>
+        
+        <section>
+            <h2>Payment Details</h2>
+            <form>
+                <div class="radio-group">
+                    <input type="radio" id="credit-card" name="payment-method" value="credit-card" checked>
+                    <label for="credit-card">Credit Card</label>
+                </div>
+                <div class="radio-group">
+                    <input type="radio" id="paypal" name="payment-method" value="paypal">
+                    <label for="paypal">PayPal</label>
+                </div>
+              
+                <div id="credit-card-fields" style="display: block;">
+                    <input type="text" placeholder="Card Number" required>
+                    <input type="text" placeholder="Expiration Date (MM/YY)" required>
+                    <input type="text" placeholder="CVV" required>
+                </div>
+            </form>
+        </section>
+    </main>
+    
+    <aside>
+        <h3>Order Summary</h3>
+        <div class="summary">
+            <p>Subtotal: $1047</p>
+            <p>Shipping: $10</p>
+            <p>Tax: $105</p>
+            <p class="total">Total: $1162</p>
+        </div>
+        <button type="submit">Place Order</button>
+    </aside>
+</body>
+</html>
