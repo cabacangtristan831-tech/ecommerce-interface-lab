@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Listing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            min-height: 100vh;
+        }
+        main {
+            flex: 1;
+            padding: 2rem;
+        }
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        article {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            text-align: center;
+        }
+        article img {
+            max-width: 100%;
+            height: auto;
+        }
+        aside {
+            width: 250px;
+            padding: 2rem;
+            background-color: #f4f4f4;
+            border-left: 1px solid #ddd;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        fieldset {
+            margin-bottom: 1rem;
+            border: none;
+        }
+        legend {
+            font-weight: bold;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Product Listing</h1>
+        <div class="products-grid">
+            <article>
+                <img src="https://via.placeholder.com/200" alt="Product 1">
+                <h3>Product 1</h3>
+                <p>$29.99</p>
+                <a href="product-detail.html?id=1">View Details</a>
+            </article>
+            <article>
+                <img src="https://via.placeholder.com/200" alt="Product 2">
+                <h3>Product 2</h3>
+                <p>$49.99</p>
+                <a href="product-detail.html?id=2">View Details</a>
+            </article>
+            <article>
+                <img src="https://via.placeholder.com/200" alt="Product 3">
+                <h3>Product 3</h3>
+                <p>$19.99</p>
+                <a href="product-detail.html?id=3">View Details</a>
+            </article>
+            <article>
+                <img src="https://via.placeholder.com/200" alt="Product 4">
+                <h3>Product 4</h3>
+                <p>$39.99</p>
+                <a href="product-detail.html?id=4">View Details</a>
+            </article>
+            <article>
+                <img src="https://via.placeholder.com/200" alt="Product 5">
+                <h3>Product 5</h3>
+                <p>$59.99</p>
+                <a href="product-detail.html?id=5">View Details</a>
+            </article>
+            <article>
+                <img src="https://via.placeholder.com/200" alt="Product 6">
+                <h3>Product 6</h3>
+                <p>$24.99</p>
+                <a href="product-detail.html?id=6">View Details</a>
+            </article>
+        </div>
+    </main>
+
+    <aside>
+        <h2>Filters</h2>
+        <form>
+            <fieldset>
+                <legend>Category</legend>
+                <label><input type="checkbox" name="category" value="electronics"> Electronics</label>
+                <label><input type="checkbox" name="category" value="clothing"> Clothing</label>
+                <label><input type="checkbox" name="category" value="books"> Books</label>
+                <label><input type="checkbox" name="category" value="home"> Home & Garden</label>
+            </fieldset>
+            <fieldset>
+                <legend>Price Range</legend>
+                <label><input type="radio" name="price" value="under-25"> Under $25</label>
+                <label><input type="radio" name="price" value="25-50"> $25 - $50</label>
+                <label><input type="radio" name="price" value="over-50"> Over $50</label>
+            </fieldset>
+            <button type="submit">Apply Filters</button>
+        </form>
+    </aside>
+</body>
+</html>
