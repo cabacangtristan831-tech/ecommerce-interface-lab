@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout & Shipping</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f5f5f5;
+}
+
+/* MAIN CONTAINER */
+.container {
+    display: flex;
+    flex-direction: column; /* Mobile: stack vertically */
+    gap: 20px;
+}
+
+/* MAIN & ASIDE */
+main {
+    flex: 2;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+aside {
+    flex: 1;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    height: fit-content;
+}
+
+/* FIELDSET & FORM */
+fieldset {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.radio-group {
+    margin-bottom: 10px;
+}
+
+.summary p {
+    margin: 5px 0;
+}
+
+.total {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* DESKTOP LAYOUT: main + aside side by side */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row; /* side by side */
+        align-items: flex-start;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<main>
+    <h1>Checkout</h1>
+    
+    <section>
+        <h2>Shipping Information</h2>
+        <fieldset>
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Full Name" required>
+
+            <label for="street">Street Address</label>
+            <input type="text" id="street" placeholder="Street Address" required>
+
+            <label for="zip">Zip Code</label>
+            <input type="text" id="zip" placeholder="Zip Code" required>
+        </fieldset>
+    </section>
+    
+    <section>
+        <h2>Payment Details</h2>
+        <form>
+            <div class="radio-group">
+                <input type="radio" id="credit-card" name="payment-method" value="credit-card" checked>
+                <label for="credit-card">Credit Card</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="paypal" name="payment-method" value="paypal">
+                <label for="paypal">PayPal</label>
+            </div>
+            <div id="credit-card-fields">
+                <input type="text" placeholder="Card Number" required>
+                <input type="text" placeholder="Expiration Date (MM/YY)" required>
+                <input type="text" placeholder="CVV" required>
+            </div>
+        </form>
+    </section>
+</main>
+
+<aside>
+    <h3>Order Summary</h3>
+    <div class="summary">
+        <p>Subtotal: $1047</p>
+        <p>Shipping: $10</p>
+        <p>Tax: $105</p>
+        <p class="total">Total: $1162</p>
+    </div>
+    <button type="submit">Place Order</button>
+</aside>
+
+</div>
+
+</body>
+</html>
