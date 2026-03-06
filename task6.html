@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Store - Mobile Phones & Accessories</title>
+<style>
+/* ---------- GLOBAL STYLES ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    color: #1a1a1a;
+}
+
+header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 16px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #1a1a1a;
+    letter-spacing: -0.5px;
+}
+
+nav a {
+    margin-left: 28px;
+    text-decoration: none;
+    color: #666;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+nav a:hover { color: #1a1a1a; }
+nav a.cta {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+nav a.cta:hover { background: #333; }
+
+/* ---------- CONTAINER GRID LAYOUT ---------- */
+.container {
+    display: grid;
+    grid-template-columns: 1fr; /* Mobile-first: single column */
+    gap: 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: calc(100vh - 65px);
+    padding: 0 16px;
+}
+
+/* ---------- MAIN ---------- */
+main {
+    flex: 1;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.page-title {
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+.product-count {
+    color: #888;
+    font-size: 14px;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 24px;
+}
+
+.product-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 64px;
+}
+
+.product-card h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.product-card .category {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.product-card .price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 16px;
+}
+
+.product-card a {
+    display: block;
+    text-align: center;
+    font-size: 13px;
+    color: #666;
+    text-decoration: none;
+    padding: 12px;
+    background: #f5f5f5;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.product-card a:hover {
+    background: #1a1a1a;
+    color: #fff;
+}
+
+/* ---------- SIDEBAR ---------- */
+aside {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    padding: 24px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    border-radius: 12px;
+}
+
+aside h2 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+.filter-group {
+    margin-bottom: 28px;
+}
+
+.filter-group h3 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    margin-bottom: 14px;
+}
+
+.filter-group label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.filter-group label:hover { color: #1a1a1a; }
+
+.filter-group input {
+    width: 18px;
+    height: 18px;
+    margin-right: 12px;
+    accent-color: #1a1a1a;
+    cursor: pointer;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    background: #1a1a1a;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+button:hover {
+    background: #333;
+    transform: translateY(-2px);
+}
+
+/* ---------- DESKTOP LAYOUT ---------- */
+@media (min-width: 900px) {
+    .container {
+        grid-template-columns: 25% 1fr; /* Sidebar 25%, main 75% */
+        align-items: start;
+    }
+
+    aside {
+        position: sticky;
+        top: 80px;
+        border-left: 1px solid rgba(0,0,0,0.05);
+        border-top: none;
+        height: max-content;
+        border-radius: 12px;
+    }
+}
+
+/* ---------- MOBILE ADJUSTMENTS ---------- */
+@media (max-width: 899px) {
+    header {
+        padding: 16px 20px;
+    }
+    main {
+        padding: 0;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo">Store</a>
+    <nav>
+        <a href="index.html">Products</a>
+        <a href="signup.html" class="cta">Sign Up</a>
+    </nav>
+</header>
+
+<div class="container">
+    <aside>
+        <h2>Filters</h2>
+        <form id="filterForm">
+            <div class="filter-group">
+                <h3>Category</h3>
+                <label><input type="checkbox" name="category" value="smartphones"> Smartphones</label>
+                <label><input type="checkbox" name="category" value="audio"> Audio</label>
+                <label><input type="checkbox" name="category" value="wearables"> Wearables</label>
+                <label><input type="checkbox" name="category" value="chargers"> Chargers</label>
+                <label><input type="checkbox" name="category" value="accessories"> Accessories</label>
+                <label><input type="checkbox" name="category" value="cases"> Cases</label>
+            </div>
+
+            <div class="filter-group">
+                <h3>Price</h3>
+                <label><input type="radio" name="price" value="under-50"> Under $50</label>
+                <label><input type="radio" name="price" value="50-200"> $50 - $200</label>
+                <label><input type="radio" name="price" value="200-500"> $200 - $500</label>
+                <label><input type="radio" name="price" value="over-500"> Over $500</label>
+            </div>
+
+            <button type="submit">Apply Filters</button>
+        </form>
+    </aside>
+
+    <main>
+        <div class="page-header">
+            <h1 class="page-title">Mobile Phones & Accessories</h1>
+            <span class="product-count">8 products</span>
+        </div>
+        <div class="products-grid">
+            <article class="product-card">
+                <div class="product-image">📱</div>
+                <h3>Pixelon Pro</h3>
+                <p class="category">Smartphones</p>
+                <p class="price">$1,199</p>
+                <a href="#" onclick="viewProduct(1)">View Details</a>
+            </article>
+            <article class="product-card">
+                <div class="product-image">📱</div>
+                <h3>Pixelon s26</h3>
+                <p class="category">Smartphones</p>
+                <p class="price">$1,299</p>
+                <a href="#" onclick="viewProduct(2)">View Details</a>
+            </article>
+            <article class="product-card">
+                <div class="product-image">🎧</div>
+                <h3>PexiPods Pro 2nd Gen</h3>
+                <p class="category">Audio</p>
+                <p class="price">$249</p>
+                <a href="#" onclick="viewProduct(3)">View Details</a>
+            </article>
+            <article class="product-card">
+                <div class="product-image">⌚</div>
+                <h3>Pixelon Watch Series 9</h3>
+                <p class="category">Wearables</p>
+                <p class="price">$399</p>
+                <a href="#" onclick="viewProduct(4)">View Details</a>
+            </article>
+            <article class="product-card">
+                <div class="product-image">🔌</div>
+                <h3>20W USB-C Charger</h3>
+                <p class="category">Chargers</p>
+                <p class="price">$19</p>
+                <a href="#" onclick="viewProduct(5)">View Details</a>
+            </article>
+            <article class="product-card">
+                <div class="product-image">🔋</div>
+                <h3>20000mAh Power Bank</h3>
+                <p class="category">Accessories</p>
+                <p class="price">$49</p>
+                <a href="#" onclick="viewProduct(6)">View Details</a>
+            </article>
+            <article class="product-card">
+                <div class="product-image">📱</div>
+                <h3>Pixelon 8 Pro</h3>
+                <p class="category">Smartphones</p>
+                <p class="price">$999</p>
+                <a href="#" onclick="viewProduct(7)">View Details</a>
+            </article>
+            <article class="product-card">
+                <div class="product-image">🛡️</div>
+                <h3>Premium Phone Case</h3>
+                <p class="category">Cases</p>
+                <p class="price">$29</p>
+                <a href="#" onclick="viewProduct(8)">View Details</a>
+            </article>
+        </div>
+    </main>
+</div>
+
+<script>
+const products = [
+    { id:1, name:"Pixelon Pro", category:"Smartphones", price:1199 },
+    { id:2, name:"Pixelon s26", category:"Smartphones", price:1299 },
+    { id:3, name:"PexiPods Pro 2nd Gen", category:"Audio", price:249 },
+    { id:4, name:"Pixelon Watch Series 9", category:"Wearables", price:399 },
+    { id:5, name:"20W USB-C Charger", category:"Chargers", price:19 },
+    { id:6, name:"20000mAh Power Bank", category:"Accessories", price:49 },
+    { id:7, name:"Pixelon 8 Pro", category:"Smartphones", price:999 },
+    { id:8, name:"Premium Phone Case", category:"Cases", price:29 }
+];
+
+function viewProduct(id) {
+    const product = products.find(p => p.id===id);
+    alert(`📱 ${product.name}\nCategory: ${product.category}\nPrice: $${product.price}`);
+}
+
+document.getElementById('filterForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    alert('Filters applied! (Demo)');
+});
+</script>
+
+</body>
+</html>
