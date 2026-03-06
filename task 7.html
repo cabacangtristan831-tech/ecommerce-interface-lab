@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Store - Mobile Phones & Accessories</title>
+<style>
+/* ---------- GLOBAL STYLES ---------- */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background:#f5f7fa; color:#1a1a1a; min-height:100vh; }
+header { background: rgba(255,255,255,0.95); backdrop-filter:blur(10px); padding:16px 40px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(0,0,0,0.05); position:sticky; top:0; z-index:100; }
+.logo { font-size:20px; font-weight:700; text-decoration:none; color:#1a1a1a; letter-spacing:-0.5px; }
+nav a { margin-left:28px; text-decoration:none; color:#666; font-size:14px; font-weight:500; transition:color 0.2s; }
+nav a:hover { color:#1a1a1a; }
+nav a.cta { background:#1a1a1a; color:#fff; padding:10px 20px; border-radius:8px; }
+nav a.cta:hover { background:#333; }
+
+/* ---------- HERO ---------- */
+.hero { background:#f4f4f4; padding:2rem; text-align:center; overflow:hidden; margin-bottom:32px; }
+.hero-title, .hero-subtitle, .hero-button { opacity:0; transform:translateY(50px); animation-fill-mode:forwards; }
+.hero-title { animation: slideUp 1s ease-out 0.2s forwards; }
+.hero-subtitle { animation: slideUp 1s ease-out 0.4s forwards; }
+.hero-button { animation: slideUp 1s ease-out 0.6s forwards; }
+
+/* ---------- CONTAINER GRID LAYOUT ---------- */
+.container { display:grid; grid-template-columns:1fr; gap:32px; max-width:1400px; margin:0 auto; min-height:calc(100vh - 65px); padding:0 16px; }
+
+/* ---------- MAIN ---------- */
+main { flex:1; }
+.page-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:32px; }
+.page-title { font-size:28px; font-weight:600; letter-spacing:-0.5px; }
+.product-count { color:#888; font-size:14px; }
+.products-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(240px,1fr)); gap:24px; }
+
+/* ---------- PRODUCT CARD ---------- */
+.product-card { background:#fff; border-radius:16px; padding:16px; box-shadow:0 4px 20px rgba(0,0,0,0.06); transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease; opacity:0; transform:translateY(30px); }
+.product-card:hover { transform:translateY(-8px); box-shadow:0 12px 40px rgba(0,0,0,0.12); }
+.product-image { width:100%; height:200px; background:linear-gradient(135deg,#f8f9fa 0%,#e9ecef 100%); border-radius:12px; margin-bottom:16px; display:flex; align-items:center; justify-content:center; font-size:64px; }
+.product-card h3 { font-size:15px; font-weight:600; margin-bottom:6px; }
+.product-card .category { font-size:12px; color:#888; margin-bottom:8px; text-transform:uppercase; letter-spacing:0.5px; }
+.product-card .price { font-size:18px; font-weight:700; color:#1a1a1a; margin-bottom:16px; }
+.product-card button { display:block; width:100%; font-size:13px; color:#fff; background:#1a1a1a; border:none; border-radius:8px; font-weight:500; padding:12px; cursor:pointer; transition: all 0.2s; }
+.product-card button:hover { animation:pulse 0.6s ease infinite; }
+
+/* ---------- SIDEBAR ---------- */
+aside { width:100%; background: rgba(255,255,255,0.7); backdrop-filter:blur(10px); padding:24px; border-top:1px solid rgba(0,0,0,0.05); border-radius:12px; opacity:0; transform:translateX(-20px); animation:slideInSidebar 0.6s ease forwards; }
+aside h2 { font-size:16px; font-weight:600; margin-bottom:24px; }
+.filter-group { margin-bottom:28px; }
+.filter-group h3 { font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:1px; color:#888; margin-bottom:14px; }
+.filter-group label { display:flex; align-items:center; font-size:14px; color:#555; margin-bottom:12px; cursor:pointer; transition:color 0.2s; }
+.filter-group label:hover { color:#1a1a1a; }
+.filter-group input { width:18px; height:18px; margin-right:12px; accent-color:#1a1a1a; cursor:pointer; }
+
+/* ---------- KEYFRAMES ---------- */
+@keyframes slideUp { 0%{opacity:0; transform:translateY(50px);} 100%{opacity:1; transform:translateY(0);} }
+@keyframes fadeInUp { 0%{opacity:0; transform:translateY(30px);} 100%{opacity:1; transform:translateY(0);} }
+@keyframes pulse { 0%{transform:scale(1);} 50%{transform:scale(1.05);} 100%{transform:scale(1);} }
+@keyframes bounce { 0% { transform: translateY(0); } 30% { transform: translateY(-10px); } 50% { transform: translateY(0); } 70% { transform: translateY(-5px); } 100% { transform: translateY(0); } }
+@keyframes slideInSidebar { 0% {opacity:0; transform:translateX(-20px);} 100% {opacity:1; transform:translateX(0);} }
+
+/* ---------- DESKTOP LAYOUT ---------- */
+@media(min-width:900px){ .container{grid-template-columns:25% 1fr; align-items:start;} aside{position:sticky; top:80px; border-left:1px solid rgba(0,0,0,0.05); border-top:none; height:max-content;} }
+
+/* ---------- MOBILE ADJUSTMENTS ---------- */
+@media(max-width:899px){ header{padding:16px 20px;} main{padding:0;} }
+</style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo">Store</a>
+    <nav>
+        <a href="index.html">Products</a>
+        <a href="signup.html" class="cta">Sign Up</a>
+    </nav>
+</header>
+
+<div class="hero">
+    <h1 class="hero-title">Welcome to Our Store</h1>
+    <p class="hero-subtitle">Discover amazing products at unbeatable prices. Start shopping today!</p>
+    <button class="hero-button">Shop Now</button>
+</div>
+
+<div class="container">
+    <aside>
+        <h2>Filters</h2>
+        <form id="filterForm">
+            <div class="filter-group">
+                <h3>Category</h3>
+                <label><input type="checkbox" name="category" value="Smartphones"> Smartphones</label>
+                <label><input type="checkbox" name="category" value="Audio"> Audio</label>
+                <label><input type="checkbox" name="category" value="Wearables"> Wearables</label>
+                <label><input type="checkbox" name="category" value="Chargers"> Chargers</label>
+                <label><input type="checkbox" name="category" value="Accessories"> Accessories</label>
+                <label><input type="checkbox" name="category" value="Cases"> Cases</label>
+            </div>
+            <div class="filter-group">
+                <h3>Price</h3>
+                <label><input type="radio" name="price" value="under-50"> Under $50</label>
+                <label><input type="radio" name="price" value="50-200"> $50 - $200</label>
+                <label><input type="radio" name="price" value="200-500"> $200 - $500</label>
+                <label><input type="radio" name="price" value="over-500"> Over $500</label>
+            </div>
+            <button type="submit">Apply Filters</button>
+        </form>
+    </aside>
+
+    <main>
+        <div class="page-header">
+            <h1 class="page-title">Mobile Phones & Accessories</h1>
+            <span class="product-count">8 products</span>
+        </div>
+        <div class="products-grid" id="productsGrid">
+            <!-- Product cards will be dynamically inserted -->
+        </div>
+    </main>
+</div>
+
+<script>
+const products = [
+    {id:1,name:"Pixelon Pro",category:"Smartphones",price:1199,icon:"📱"},
+    {id:2,name:"Pixelon s26",category:"Smartphones",price:1299,icon:"📱"},
+    {id:3,name:"PexiPods Pro 2nd Gen",category:"Audio",price:249,icon:"🎧"},
+    {id:4,name:"Pixelon Watch Series 9",category:"Wearables",price:399,icon:"⌚"},
+    {id:5,name:"20W USB-C Charger",category:"Chargers",price:19,icon:"🔌"},
+    {id:6,name:"20000mAh Power Bank",category:"Accessories",price:49,icon:"🔋"},
+    {id:7,name:"Pixelon 8 Pro",category:"Smartphones",price:999,icon:"📱"},
+    {id:8,name:"Premium Phone Case",category:"Cases",price:29,icon:"🛡️"}
+];
+
+const productsGrid = document.getElementById('productsGrid');
+
+function renderProducts(filteredProducts){
+    productsGrid.innerHTML = '';
+    filteredProducts.forEach((p,i)=>{
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `
+            <div class="product-image">${p.icon}</div>
+            <h3>${p.name}</h3>
+            <p class="category">${p.category}</p>
+            <p class="price">$${p.price}</p>
+            <button onclick="addToCart(${p.id}, this)">Add to Cart</button>
+        `;
+        productsGrid.appendChild(card);
+        card.style.animation = `fadeInUp 0.8s ease forwards ${i*0.1}s`;
+    });
+}
+
+// Add to cart with bounce animation
+function addToCart(id, btn){
+    const product = products.find(p=>p.id===id);
+    const card = btn.closest('.product-card');
+    card.style.animation='bounce 0.4s ease forwards';
+    setTimeout(()=>{ card.style.animation=''; },400);
+    alert(`✅ ${product.name} added to cart!`);
+}
+
+// Initial render
+renderProducts(products);
+
+// Filtering
+document.getElementById('filterForm').addEventListener('submit', e=>{
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const selectedCategories = formData.getAll('category');
+    const priceFilter = formData.get('price');
+
+    let filtered = products.filter(p=>{
+        let categoryMatch = selectedCategories.length===0 || selectedCategories.includes(p.category);
+        let priceMatch = true;
+        if(priceFilter==='under-50') priceMatch = p.price<50;
+        else if(priceFilter==='50-200') priceMatch = p.price>=50 && p.price<=200;
+        else if(priceFilter==='200-500') priceMatch = p.price>=200 && p.price<=500;
+        else if(priceFilter==='over-500') priceMatch = p.price>500;
+        return categoryMatch && priceMatch;
+    });
+
+    renderProducts(filtered);
+});
+</script>
+
+</body>
+</html>
